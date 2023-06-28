@@ -6,10 +6,12 @@ banco = sqlite3.connect('ChatBot.db')
 cursor = banco.cursor()
 
 #inserção de itens na tabela
-cursor.execute("CREATE TABLE calendario (mes text, data integer, evento text, link_informacoes text)")
+#cursor.execute("CREATE TABLE calendario (mes text, data integer, evento text, link_informacoes text)")
 cursor.execute("INSERT INTO calendario VALUES('junho',01,'Processamento de rematrícula','link do pdf disponibilizado')")
 cursor.execute("INSERT INTO calendario VALUES('junho',05,'Matrícula extraordinária','link do pdf disponibilizado')")
 cursor.execute("INSERT INTO calendario VALUES('junho',08,'Feriado - Corpus Christi. Não haverá aula','link do aviso')")
+
+cursor.execute("DELETE from calendario WHERE data = 1")
 
 banco.commit()
 
